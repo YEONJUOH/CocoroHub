@@ -1,13 +1,13 @@
 package cocoro.studygroup.model;
 
+import java.sql.Timestamp;
+
 public class StudyTime {
 	
 	private int t_id;
 	private int s_id;
-	private int t_day;//¿äÀÏ Á¤º¸ ÀÎÆ®·Î ¹Ş¾Æ ¿Ã °ÍÀÎ°¡¿ä?
-	private int t_start;
-	private int t_end;
+	private String t_day; // ì œì•½ì¡°ê±´ ì•ŒíŒŒë²³ 3ê¸€ì , (sun, mon, tue, wed, thu, fri, sat)
+	private Timestamp t_start;
+	private Timestamp t_end;
 	
-	
-
 }
