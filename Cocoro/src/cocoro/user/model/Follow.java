@@ -6,7 +6,7 @@ public class Follow {
     private int f_id;
 	private int u_id;
 	private int f_o_id;
-	private Timestamp f_date;
+	private Timestamp f_history;
 	
 	
 }
