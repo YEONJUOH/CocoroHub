@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class StudyActivity {
 
-	
+	 
 	private int j_id;
 	private int u_id;
 	private int s_id;

@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class StudyGroup {
 
 	 //study ���̺�� account ���̺� ��ħ
-	
+	 
 	private int s_id;
 	private String s_name;
 	private String s_intro;
