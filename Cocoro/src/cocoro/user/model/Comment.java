@@ -11,4 +11,5 @@ public class Comment {
 	private String c_comment;
 	private Timestamp c_date;
 	
+
 }
