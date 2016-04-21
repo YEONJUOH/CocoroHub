@@ -28,7 +28,7 @@
 						<b>Cocoro에 오신걸 환영합니다</b>
 					</h3>
 					<h2 class="text-center">
-						<b>나만의 스터디를 만들어보세요</b>
+						<b>나만의 스터디를 만들어보세요 </b>
 					</h2>
 
 					<div class="col-md-3">
