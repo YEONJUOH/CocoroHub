@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class Users {
 
-//user , account, mentor 한글입력했습니다.
+//user , account, mentor 갓상효
 	
 private int u_id;
 private String u_email;
