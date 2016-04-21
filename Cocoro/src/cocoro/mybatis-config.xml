@@ -20,6 +20,7 @@
 	
 	<mappers>
 		<!--형태로 된 XML 파일추가시키는곳 <mapper resource="kosta/mapper/Board.xml"/>  -->
+		<mapper resource="cocoro/xml/Users.xml"/>
 		
 	</mappers>
 	
