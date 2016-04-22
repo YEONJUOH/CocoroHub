@@ -8,7 +8,7 @@ public class StudyGroup {
 	private String s_name;
 	private String s_intro;
 	private int s_leader_id;
-	private int s_max_member; // 스터디 참여가능 인원수
+	private String s_max_member; // 스터디 참여가능 인원수
 	private String s_fix_member; // 스터디원 모집을 종료 yes or no (T면 yes, F면 no)
 	private Timestamp s_start;
 	private Timestamp s_end;
