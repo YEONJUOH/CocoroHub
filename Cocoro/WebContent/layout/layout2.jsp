@@ -18,6 +18,7 @@ body{
 
 <body>
 	<jsp:include page="header.jsp" />
+	스판스판스판스판
 	<decorator:body />
 	<jsp:include page="footer.jsp" />
 </body>

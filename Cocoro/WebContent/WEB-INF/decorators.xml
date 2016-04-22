@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<decorators defaultdir="/layout">
+	<decorator name="main" page="layout.jsp">
+		<pattern>/jsp.jsp</pattern>
+		<pattern>/jsp/*</pattern>
+	</decorator>
+	<decorator name="main2" page="layout2.jsp">
+		<pattern>/page.jsp</pattern>
+		<pattern>/page/*</pattern>
+	</decorator>
+	<excludes>
+		<pattern>/jsp/exclude.jsp</pattern>
+		<pattern>/page/exclude.jsp</pattern>
+	</excludes>
+</decorators>
