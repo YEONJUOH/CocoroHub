@@ -1,6 +1,6 @@
 package cocoro.user.dao;
 
-public class MemberDao {
+public class UserDao {
 
   // mentor ���̺�� member.account ���̺��� access�մϴ�. 
 
