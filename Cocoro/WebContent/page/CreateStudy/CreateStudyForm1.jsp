@@ -9,21 +9,45 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="../js/carousel.js"></script>
 <title>Insert title here</title>
- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css">
-  <script>
+  <script src="/Scripts/jquery-1.9.0.js" type="text/javascript"></script>   
+  <script src="/Scripts/jquery-ui-1.10.0.min.js" type="text/javascript"></script>  
+  <script src="/Scripts/jquery.ui.datepicker-ko.js" type="text/javascript"></script>  
+  <script type="text/javascript">
   $(function() {
     $( "#from" ).datepicker({
+      dateFormat: 'yy-mm-dd', 
+      closeText: '닫기',  
+      prevText: '이전달',  
+      nextText: '다음달',  
+      currentText: '오늘',  
+      monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],  
+      monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],  
+      dayNames: ['일', '월', '화', '수', '목', '금', '토'],  
+      dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],  
+      dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],  
       defaultDate: "+1w",
       changeMonth: true,
       numberOfMonths: 3,
+      minDate: dtNow,
       onClose: function( selectedDate ) {
         $( "#to" ).datepicker( "option", "minDate", selectedDate );
       }
     });
     $( "#to" ).datepicker({
+      dateFormat: 'yy-mm-dd',  
+      closeText: '닫기',  
+      prevText: '이전달',  
+      nextText: '다음달',  
+      currentText: '오늘',  
+      monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],  
+      monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],  
+      dayNames: ['일', '월', '화', '수', '목', '금', '토'],  
+      dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],  
+      dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],  
       defaultDate: "+1w",
       changeMonth: true,
       numberOfMonths: 3,
@@ -118,17 +142,17 @@
     
   </div>
 </div>
-<br><br>
+<br>
 
 <!-- 스터디 기간 -->
 
 <div class="form-group">
   <label class="col-md-4 control-label" for="s_start">스터디 기간</label>  
   	<div class="col-md-4" style="padding-top:5px; left:1px;">
-  		<label for="from"></label>
-		<input type="text" id="from" name="from" style="width:100px;">
+		<label for="from"></label>
+		<input type="text" id="from" name="from">
 		<label for="to">~</label>
-		<input type="text" id="to" name="to" style="width:100px;">
+		<input type="text" id="to" name="to">
   </div>
 </div>
  
