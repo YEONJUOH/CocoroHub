@@ -2,7 +2,7 @@ package cocoro.user.dao;
 
 public class MemberDao {
 
-  // mentor Å×ÀÌºí°ú member.account Å×ÀÌºíÀ» accessÇÕ´Ï´Ù. 
+  // mentor ï¿½ï¿½ï¿½Ìºï¿½ï¿½ member.account ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ accessï¿½Õ´Ï´ï¿½. 
 
 
 }
