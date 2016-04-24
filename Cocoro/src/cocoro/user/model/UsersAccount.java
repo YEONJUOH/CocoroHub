@@ -1,6 +1,6 @@
 package cocoro.user.model;
 
-public class UserAccount {
+public class UsersAccount {
 	
 	private int u_account_id;
 	private int u_account;

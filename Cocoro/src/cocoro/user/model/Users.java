@@ -2,7 +2,7 @@ package cocoro.user.model;
 
 import java.sql.Timestamp;
 
-public class User {
+public class Users {
 
 //user , account, mentor 갓상효
 	

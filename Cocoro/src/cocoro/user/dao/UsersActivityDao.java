@@ -1,6 +1,6 @@
 package cocoro.user.dao;
 
-public class UserActivityDao {
+public class UsersActivityDao {
 
 	//relation , like , comment, studyactivity���̺� ���
 	
