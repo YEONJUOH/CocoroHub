@@ -69,7 +69,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="s_name">스터디 명</label>  
   <div class="col-md-5">
-  <input id="s_name" name="s_name" type="text" placeholder="예) 토익 성애자들의 모임" class="form-control input-md" required="">
+  <input id="s_update_name" name="s_update_name" type="text" placeholder="예) 토익 성애자들의 모임" class="form-control input-md" required="">
   </div>
 </div>
 <br>
@@ -78,7 +78,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="s_intro">스터디 소개</label>  
   <div class="col-md-7">
-  <input id="s_intro" name="s_intro" type="text" placeholder="예) 토익 만점 목표, 토익 800이상 가입가능" class="form-control input-md" required="">    
+  <input id="s_update_intro" name="s_update_intro" type="text" placeholder="예) 토익 만점 목표, 토익 800이상 가입가능" class="form-control input-md" required="">    
   </div>
 </div>
 <br>
@@ -87,7 +87,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="s_tag">키워드 설정</label>  
   <div class="col-md-7">
-  <input id="s_tag" name="s_tag" type="text" placeholder="예) #토익 #성애자 #TOEIC #토익시험" class="form-control input-md" required="">
+  <input id="s_update_tag" name="s_update_tag" type="text" placeholder="예) #토익 #성애자 #TOEIC #토익시험" class="form-control input-md" required="">
   <span class="help-block">이 키워드는 스터디 검색 시 사용됩니다.</span>  
   </div>
 </div>
@@ -97,7 +97,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="s_max_member">모집 인원</label>  
   <div class="col-md-2">
-  <input id="s_max_member" name="s_max_member" type="text" placeholder="예) 5명" class="form-control input-md" required="">
+  <input id="s_update_max_member" name="s_update_max_member" type="text" placeholder="예) 5명" class="form-control input-md" required="">
     
   </div>
 </div>
@@ -121,11 +121,11 @@
   <label class="col-md-4 control-label" for="s_time_check">스터디 시간 설정</label>
   <div class="col-md-4">
     <label class="radio-inline" for="s_time_check-0">
-      <input type="radio" name="s_time_check" id="s_time_check-0" value="T">
+      <input type="radio" name="s_update_time_check" id="s_update_time_check-0" value="T">
       사용함
     </label>
     <label class="radio-inline" for="s_time_check-1">
-      <input type="radio" name="s_time_check" id="s_time_check-1" value="F">
+      <input type="radio" name="s_update_time_check" id="s_update_time_check-1" value="F">
       사용안함
     </label>
   </div>
@@ -139,13 +139,13 @@
   <div class="col-md-4">
   <div class="checkbox">
     <label for="s_online-0">
-      <input type="checkbox" name="s_online" id="s_online-0" value="T">
+      <input type="checkbox" name="s_update_online" id="s_update_online-0" value="T">
       온라인
     </label>
 	</div>
   <div class="checkbox">
     <label for="s_online-1">
-      <input type="checkbox" name="s_online" id="s_online-1" value="F">
+      <input type="checkbox" name="s_update_online" id="s_update_online-1" value="F">
       오프라인
     </label>
 	</div>
@@ -157,9 +157,9 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="s_location">오프라인 모임 장소</label>  
   <div class="col-md-2">
-  <input id="s_location" name="s_location" type="text" placeholder="" class="form-control input-sm"> 
+  <input id="s_update_location" name="s_update_location" type="text" placeholder="" class="form-control input-sm"> 
   </div>
-  <button id="s_location" name="s_location" class="btn btn-primary">위치검색</button>
+  <button id="s_update_location" name="s_update_location" class="btn btn-primary">위치검색</button>
   
 </div>
 
@@ -168,11 +168,11 @@
   <label class="col-md-4 control-label" for="s_attend_check">출석체크 기능</label>
   <div class="col-md-4"> 
     <label class="radio-inline" for="s_attend_check-0">
-      <input type="radio" name="s_attend_check" id="s_attend_check-0" value="T" checked="checked">
+      <input type="radio" name="s_update_attend_check" id="s_update_attend_check-0" value="T" checked="checked">
       사용함
     </label> 
     <label class="radio-inline" for="s_attend_check-1">
-      <input type="radio" name="s_attend_check" id="s_attend_check-1" value="F">
+      <input type="radio" name="s_update_attend_check" id="s_update_attend_check-1" value="F">
       사용안함
     </label>
   </div>
@@ -187,15 +187,15 @@
   <label class="col-md-4 control-label" for="s_deposit">디파짓 기능</label>
   <div class="col-md-4">
     <label class="radio-inline" for="s_deposit-0">
-     <input type="radio" name="s_deposit" id="s_deposit-0" value="0" checked="checked">
+     <input type="radio" name="s_update_deposit" id="s_update_deposit-0" value="0" checked="checked">
       사용함
     </label>
     <label class="radio-inline" for="s_deposit-1">
-          <input type="radio" name="s_deposit" id="s_deposit-1" value="-1">
+          <input type="radio" name="s_update_deposit" id="s_update_deposit-1" value="-1">
       사용안함
     </label>
     &nbsp;&nbsp;&nbsp;
-    <button id="s_deposit_set" name="s_deposit_set" class="btn btn-primary">디파짓 설정</button>
+    <button id="s_update_deposit_set" name="s_update_deposit_set" class="btn btn-primary">디파짓 설정</button>
   </div>
 </div>
 
@@ -208,15 +208,15 @@
   <label class="col-md-4 control-label" for="s_abil_check">실력조건 설정</label>
   <div class="col-md-4">
     <label class="radio-inline" for="s_abil_check-0">
-      <input type="radio" name="s_abil_check" id="s_abil_check-0" value="T">
+      <input type="radio" name="s_update_abil_check" id="s_update_abil_check-0" value="T">
       사용함
     </label>
     <label class="radio-inline" for="s_abil_check-1">
-      <input type="radio" name="s_abil_check" id="s_abil_check-1" value="F">
+      <input type="radio" name="s_update_abil_check" id="s_update_abil_check-1" value="F">
       사용안함
     </label>
     &nbsp;&nbsp;&nbsp;
-    <button id="s_abil_set" name="s_abil_set" class="btn btn-primary">실력 설정</button>
+    <button id="s_update_abil_set" name="s_update_abil_set" class="btn btn-primary">실력 설정</button>
   </div>
 </div>
 <br><br>
