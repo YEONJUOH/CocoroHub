@@ -4,10 +4,9 @@
 
 
 
-<mapper namespace="kosta.mapper.BoardMapper">
+<mapper namespace="cocoro.mapper.UserMapper">
 	<cache />  
 	
-<!-- d -->
 	
 </mapper>
 

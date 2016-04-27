@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="cocoro.mapper.StudyGroupMapper">
+	<cache />  
+	
+	<insert id="createStudy" parameterType="StudyGroup">
+		insert into study(
+			s_id, s_name, s_intro, s_leader_id, s_max_member, s_fix_member, s_start, s_end, s_attend_check, s_abil_check, s_location_x, s_location_y, s_address, s_online, s_offline, s_mento_check, s_kind_check, s_time_check, s_deposit, s_last_act, s_tag, s_recent_hit, s_total_hit, s_history, s_t_start, s_t_end
+		) values (
+			#{s_id}, #{s_name}, #{s_intro}, #{s_leader_id}, #{s_max_member}, 'F', SYSDATE, SYSDATE, #{s_attend_check}, #{s_abil_check}, #{s_location_x}, #{s_location_y}, #{s_address}, #{s_online}, #{s_offline}, #{s_mento_check}, #{s_kind_check}, #{s_time_check}, #{s_deposit}, SYSDATE , #{s_tag}, 0, 0, SYSDATE, #{s_t_start}, #{s_t_end}
+		)
+		
+	</insert>
+	
+	<select id="selectS_id" resultType="Integer">
+		select max(s_id) from study
+	</select>
+	
+</mapper>

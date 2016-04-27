@@ -1,0 +1,590 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../js/carousel.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="style.css">  
+<script src="sweetalert.min.js"></script> 
+<link rel="stylesheet" type="text/css" href="sweetalert.css">
+<style type="text/css">  
+ .ui-datepicker{ font-size: 13.2px; width: 293px; height:295px; z-index:100; margin:0px;}  
+</style>  
+<style>
+#s_add{margin-left: -55px;}
+#label_location{padding-top: 5px;}
+#deposit_attribute{margin-right:-15px;margin-left:60px;}
+#deposit_input{margin-right: -15px;margin-left: 60px;}
+.form-groups {position:relative;left:280px;margin-bottom:20px;margin-left:-17px;}
+.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+.map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
+.map_wrap {position:relative;width:100%;height:500px;}
+#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+.bg_white {background:#fff;}
+#menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
+#menu_wrap .option{text-align: center;}
+#menu_wrap .option p {margin:10px 0;}  
+#menu_wrap .option button {margin-left:5px;}
+#placesList li {list-style: none;}
+#placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
+#placesList .item span {display: block;margin-top:4px;}
+#placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+#placesList .item .info{padding:10px 0 10px 55px;}
+#placesList .info .gray {color:#8a8a8a;}
+#placesList .info .jibun {padding-left:26px;background:url(http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
+#placesList .info .tel {color:#009900;}
+#placesList .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
+#placesList .item .marker_1 {background-position: 0 -10px;}
+#placesList .item .marker_2 {background-position: 0 -56px;}
+#placesList .item .marker_3 {background-position: 0 -102px}
+#placesList .item .marker_4 {background-position: 0 -148px;}
+#placesList .item .marker_5 {background-position: 0 -194px;}
+#placesList .item .marker_6 {background-position: 0 -240px;}
+#placesList .item .marker_7 {background-position: 0 -286px;}
+#placesList .item .marker_8 {background-position: 0 -332px;}
+#placesList .item .marker_9 {background-position: 0 -378px;}
+#placesList .item .marker_10 {background-position: 0 -423px;}
+#placesList .item .marker_11 {background-position: 0 -470px;}
+#placesList .item .marker_12 {background-position: 0 -516px;}
+#placesList .item .marker_13 {background-position: 0 -562px;}
+#placesList .item .marker_14 {background-position: 0 -608px;}
+#placesList .item .marker_15 {background-position: 0 -654px;}
+#pagination {margin:10px auto;text-align: center;}
+#pagination a {display:inline-block;margin-right:10px;}
+#pagination .on {font-weight: bold; cursor: default;color:#777;}
+</style>
+  <script type="text/javascript">
+ (function($){
+	 
+  $(function() {
+	  var dtNow = new Date(); 
+	    $( "#from" ).datepicker({
+	      dateFormat: 'yy-mm-dd', // 데이터는 yyyy-MM-dd로 나옴  
+	      closeText: '닫기',  
+          prevText: '이전달',  
+	      nextText: '다음달',  
+	      currentText: '오늘',  
+	      monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],  
+	      monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],  
+	      dayNames: ['일', '월', '화', '수', '목', '금', '토'],  
+	      dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],  
+	      dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],  
+	      weekHeader: 'Wk',  
+          firstDay: 0,  
+          isRTL: false,  
+          duration: 200,  
+          showAnim: 'show', 
+	      defaultDate: dtNow,
+	      changeMonth: true,
+	      minDate: dtNow, 
+	      numberOfMonths: 3,
+	      onClose: function( selectedDate ) {
+	        $( "#to" ).datepicker( "option", "minDate", selectedDate );
+	      }
+	    });
+	    $( "#to" ).datepicker({
+	      dateFormat: 'yy-mm-dd', // 데이터는 yyyy-MM-dd로 나옴  
+		  closeText: '닫기',  
+	      prevText: '이전달',  
+		  nextText: '다음달',  
+		  currentText: '오늘',  
+		  monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],  
+		  monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],  
+          dayNames: ['일', '월', '화', '수', '목', '금', '토'],  
+		  dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],  
+	      defaultDate: dtNow,
+	      changeMonth: true,
+	      numberOfMonths: 3,
+	      onClose: function( selectedDate ) {
+	        $( "#from" ).datepicker( "option", "maxDate", selectedDate );
+	      }
+	    });
+	  });
+ })(jQuery);
+  </script>
+</head>
+<body>
+
+<!-- Form Name -->
+<legend>나만의 스터디 만들기</legend>
+
+<!-- 오프라인스터디 위치 설정  -->
+<div class="form-groups">
+  <label class="col-xs-2 control-label" id="label_location" for="s_location">오프라인 모임 장소</label>  
+  <div class="col-xs-2" id="s_add">
+  	<input id="s_showAddress" name="s_showAddress" type="text" placeholder="" class="form-control input-sm"> 
+  </div>
+  <button type="button" id="s_location" name="s_location"class="btn btn-primary" data-toggle="modal" data-target=".mapModal">위치검색</button>
+</div>
+
+    <!-- 여기부터 모달 --> 
+	<div class="modal fade mapModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  		<div class="modal-dialog modal-lg">
+    			<div class="modal-content">	
+    <!-- 여기부터 맵 api --> 	
+		<div class="map_wrap">
+    	  <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+			<p><em>지도를 클릭해주세요!</em></p> 
+				<div id="clickLatlng"></div>
+   					 <div id="menu_wrap" class="bg_white">
+        				<div class="option">
+           				   <p>
+               				 <form onsubmit="searchPlaces(); return false;">
+              					  키워드 : <input type="text" value="이태원 맛집" id="keyword" size="15"> 
+               				 <button type="submit">검색하기</button>
+               				 </form>
+           				   </p>
+    				    </div>
+        <hr>
+        <ul id="placesList"></ul>
+        <div id="pagination"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=3cd0e2fbd6251c82935cf18a47f510a6&libraries=services"></script>
+<script>
+// 마커를 담을 배열입니다
+var markers = [];
+
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = {
+        center: new daum.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };  
+
+// 지도를 생성합니다    
+var map = new daum.maps.Map(mapContainer, mapOption); 
+
+// 장소 검색 객체를 생성합니다
+var ps = new daum.maps.services.Places();  
+
+// 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
+var infowindow = new daum.maps.InfoWindow({zIndex:1});
+
+// 키워드로 장소를 검색합니다
+searchPlaces();
+
+// 키워드 검색을 요청하는 함수입니다
+function searchPlaces() {
+
+    var keyword = document.getElementById('keyword').value;
+
+    if (!keyword.replace(/^\s+|\s+$/g, '')) {
+        alert('키워드를 입력해주세요!');
+        return false;
+    }
+
+    // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
+    ps.keywordSearch( keyword, placesSearchCB); 
+}
+
+// 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
+function placesSearchCB(status, data, pagination) {
+    if (status === daum.maps.services.Status.OK) {
+
+        // 정상적으로 검색이 완료됐으면
+        // 검색 목록과 마커를 표출합니다
+        displayPlaces(data.places);
+
+        // 페이지 번호를 표출합니다
+        displayPagination(pagination);
+
+    } else if (status === daum.maps.services.Status.ZERO_RESULT) {
+
+        alert('검색 결과가 존재하지 않습니다.');
+        return;
+
+    } else if (status === daum.maps.services.Status.ERROR) {
+
+        alert('검색 결과 중 오류가 발생했습니다.');
+        return;
+
+    }
+}
+
+// 검색 결과 목록과 마커를 표출하는 함수입니다
+function displayPlaces(places) {
+
+    var listEl = document.getElementById('placesList'), 
+    menuEl = document.getElementById('menu_wrap'),
+    fragment = document.createDocumentFragment(), 
+    bounds = new daum.maps.LatLngBounds(), 
+    listStr = '';
+    
+    // 검색 결과 목록에 추가된 항목들을 제거합니다
+    removeAllChildNods(listEl);
+
+    // 지도에 표시되고 있는 마커를 제거합니다
+    removeMarker();
+    
+    for ( var i=0; i<places.length; i++ ) {
+
+        // 마커를 생성하고 지도에 표시합니다
+        var placePosition = new daum.maps.LatLng(places[i].latitude, places[i].longitude),
+            marker = addMarker(placePosition, i), 
+            itemEl = getListItem(i, places[i], marker); // 검색 결과 항목 Element를 생성합니다
+
+        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+        // LatLngBounds 객체에 좌표를 추가합니다
+        bounds.extend(placePosition);
+
+        // 마커와 검색결과 항목에 mouseover 했을때
+        // 해당 장소에 인포윈도우에 장소명을 표시합니다
+        // mouseout 했을 때는 인포윈도우를 닫습니다
+        (function(marker, title) {
+            daum.maps.event.addListener(marker, 'mouseover', function() {
+                displayInfowindow(marker, title);
+            });
+
+            daum.maps.event.addListener(marker, 'mouseout', function() {
+                infowindow.close();
+            });
+
+            itemEl.onmouseover =  function () {
+                displayInfowindow(marker, title);
+            };
+
+            itemEl.onmouseout =  function () {
+                infowindow.close();
+            };
+        })(marker, places[i].title);
+
+        fragment.appendChild(itemEl);
+    }
+
+    // 검색결과 항목들을 검색결과 목록 Elemnet에 추가합니다
+    listEl.appendChild(fragment);
+    menuEl.scrollTop = 0;
+
+    // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+    map.setBounds(bounds);
+}
+
+// 검색결과 항목을 Element로 반환하는 함수입니다
+function getListItem(index, places) {
+
+    var el = document.createElement('li'),
+    itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
+                '<div class="info">' +
+                '   <h5>' + places.title + '</h5>';
+
+    if (places.newAddress) {
+        itemStr += '    <span>' + places.newAddress + '</span>' +
+                    '   <span class="jibun gray">' +  places.address  + '</span>';
+    } else {
+        itemStr += '    <span>' +  places.address  + '</span>'; 
+    }
+                 
+      itemStr += '  <span class="tel">' + places.phone  + '</span>' +
+                '</div>';           
+
+    el.innerHTML = itemStr;
+    el.className = 'item';
+
+    return el;
+}
+
+// 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
+function addMarker(position, idx, title) {
+    var imageSrc = 'http://i1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+        imageSize = new daum.maps.Size(36, 37),  // 마커 이미지의 크기
+        imgOptions =  {
+            spriteSize : new daum.maps.Size(36, 691), // 스프라이트 이미지의 크기
+            spriteOrigin : new daum.maps.Point(0, (idx*46)+10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
+            offset: new daum.maps.Point(13, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
+        },
+        markerImage = new daum.maps.MarkerImage(imageSrc, imageSize, imgOptions),
+            marker = new daum.maps.Marker({
+            position: position, // 마커의 위치
+            image: markerImage 
+        });
+
+    marker.setMap(map); // 지도 위에 마커를 표출합니다
+    markers.push(marker);  // 배열에 생성된 마커를 추가합니다
+
+    return marker;
+}
+
+// 지도 위에 표시되고 있는 마커를 모두 제거합니다
+function removeMarker() {
+    for ( var i = 0; i < markers.length; i++ ) {
+        markers[i].setMap(null);
+    }   
+    markers = [];
+}
+
+// 검색결과 목록 하단에 페이지번호를 표시는 함수입니다
+function displayPagination(pagination) {
+    var paginationEl = document.getElementById('pagination'),
+        fragment = document.createDocumentFragment(),
+        i; 
+
+    // 기존에 추가된 페이지번호를 삭제합니다
+    while (paginationEl.hasChildNodes()) {
+        paginationEl.removeChild (paginationEl.lastChild);
+    }
+
+    for (i=1; i<=pagination.last; i++) {
+        var el = document.createElement('a');
+        el.href = "#";
+        el.innerHTML = i;
+
+        if (i===pagination.current) {
+            el.className = 'on';
+        } else {
+            el.onclick = (function(i) {
+                return function() {
+                    pagination.gotoPage(i);
+                }
+            })(i);
+        }
+
+        fragment.appendChild(el);
+    }
+    paginationEl.appendChild(fragment);
+}
+
+// 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
+// 인포윈도우에 장소명을 표시합니다
+function displayInfowindow(marker, title) {
+    var content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
+
+    infowindow.setContent(content);
+    infowindow.open(map, marker);
+}
+
+ // 검색결과 목록의 자식 Element를 제거하는 함수입니다
+function removeAllChildNods(el) {   
+    while (el.hasChildNodes()) {
+        el.removeChild (el.lastChild);
+    }
+}
+
+//지도를 클릭한 위치에 표출할 마커입니다
+var marker1 = new daum.maps.Marker({ 
+	// 지도 중심좌표에 마커를 생성합니다 
+    position: map.getCenter() 
+}); 
+
+//지도에 마커를 표시합니다
+marker1.setMap(map);
+
+//주소-좌표 변환 객체를 생성합니다
+var geocoder = new daum.maps.services.Geocoder();
+
+ // 지도에 클릭 이벤트를 등록합니다
+ // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+daum.maps.event.addListener(map, 'click', function(mouseEvent) {        
+	
+	
+   
+    // 클릭한 위도, 경도 정보를 가져옵니다 
+    var latlng = mouseEvent.latLng; 
+    
+    // 마커 위치를 클릭한 위치로 옮깁니다
+    marker1.setPosition(latlng);
+    
+    var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+    message += '경도는 ' + latlng.getLng() + ' 입니다';
+    
+    var location_x = latlng.getLat();
+    var location_y = latlng.getLng();
+    
+    var resultDiv = document.getElementById('clickLatlng'); 
+    resultDiv.innerHTML = message;
+    
+    searchDetailAddrFromCoords(mouseEvent.latLng, function(status, result) {
+        if (status === daum.maps.services.Status.OK) {
+            var detailAddr = !!result[0].roadAddress.name ? '<div>도로명주소 : ' + result[0].roadAddress.name + '</div>' : '';
+            detailAddr += '<div>지번 주소 : ' + result[0].jibunAddress.name + '</div>';
+            
+            var content = '<div class="bAddr">' +
+                            '<span class="title">법정동 주소정보</span>' + 
+                            detailAddr + 
+                        '</div>';
+            var address = result[0].jibunAddress.name;
+          
+         // 얼럿창 띄우기
+        	swal({   
+        		title: "현재 위치로 결정 하시겠습니까?",   
+        		text: "",   
+        		type: "info",   
+        		showCancelButton: true,   
+        		closeOnConfirm: false,   
+        		showLoaderOnConfirm: true, 
+        		}, function(){   
+        			setTimeout(function(){
+        				showAddress(address);         // input태그에  주소 표시
+        				setLocation_x(location_x);	  // input hidden의 location_x value값에 위도 저장			
+        				setLocation_y(location_y);    // input hidden의 location_y value값에 경도 저장 
+        				setAddress(address);          // input hidden의 address value값에 address저장 */
+        				swal("모임 위치가 저장되었습니다.");
+        				$('.mapModal').hide();
+        				}, 1000); });
+        }
+    });
+});
+ 
+
+
+function showAddress(address) {
+    $('#s_showAddress').attr('placeholder', address);
+}
+function setAddress(address) {
+	$('#s_address').attr('value', address);
+}
+
+function setLocation_x(location_x){
+	$('#s_location_x').attr('value', location_x);
+}
+
+function setLocation_y(location_y){
+	$('#s_location_y').attr('value', location_y);
+}
+
+function searchDetailAddrFromCoords(coords, callback) {
+    // 좌표로 법정동 상세 주소 정보를 요청합니다
+    geocoder.coord2detailaddr(coords, callback);
+}
+
+</script>
+
+</div>
+</div>
+</div>
+
+<form class="form-horizontal">
+<fieldset>
+
+<!-- 스터디 기간 -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="s_start">스터디 기간</label>  
+  	<div class="col-md-4" style="padding-top:5px; left:1px;">
+		<label for="from"></label>
+		<input type="text" id="from" name="from">
+		<label for="to">~</label>
+		<input type="text" id="to" name="to">
+  </div>
+</div>
+ 
+<br>
+
+
+<!-- 스터디 시간 설정 -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="s_time_check">스터디 시간 설정</label>
+  <div class="col-md-4">
+    <label class="radio-inline" for="s_time_check-0">
+      <input type="radio" name="s_time_check" id="s_time_check-0" value="T" checked="checked">
+      사용함
+    </label>
+    <label class="radio-inline" for="s_time_check-1">
+      <input type="radio" name="s_time_check" id="s_time_check-1" value="F">
+      사용안함
+    </label>
+  </div>
+</div>
+<br>
+
+
+<!-- 스터디 장소  -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="s_online">스터디 장소</label>
+  <div class="col-md-4">
+  <div class="checkbox">
+    <label for="s_online-0">
+      <input type="checkbox" name="s_online" id="s_online-0" value="T">
+      온라인
+    </label>
+	</div>
+  <div class="checkbox">
+    <label for="s_online-1">
+      <input type="checkbox" name="s_online" id="s_online-1" value="F">
+      오프라인
+    </label>
+	</div>
+  </div>
+</div>
+<br>
+
+     	
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 출석체크 기능 -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="s_attend_check">출석체크 기능</label>
+  <div class="col-md-4"> 
+    <label class="radio-inline" for="s_attend_check-0">
+      <input type="radio" name="s_attend_check" id="s_attend_check-0" value="T" checked="checked">
+      사용함
+    </label> 
+    <label class="radio-inline" for="s_attend_check-1">
+      <input type="radio" name="s_attend_check" id="s_attend_check-1" value="F">
+      사용안함
+    </label>
+  </div>
+</div>
+
+<br>
+
+<!-- 실력 조건 설정 -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="s_abil_check">실력조건 설정</label>
+  <div class="col-md-2">
+    <label class="radio-inline" for="s_abil_check-0">
+      <input type="radio" name="s_abil_check" id="s_abil_check-0" checked="checked">
+      사용함
+    </label>
+    <label class="radio-inline" for="s_abil_check-1">
+      <input type="radio" name="s_abil_check" id="s_abil_check-1" value="0">
+      사용안함
+    </label>
+  </div>
+   <div class="col-md-1" style="left:-40px;">
+    <select class="form-control" id="s_abil" name="s_abil_check">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                              <option>6</option>
+                              <option>7</option>
+                              <option>8</option>
+                              <option>9</option>
+                           </select>
+     </div>
+</div>
+<br><br>
+ <!-- 주소,위도,경도 보내기 --> 
+<input type="hidden" id="s_address" name="s_address" value="">
+<input type="hidden" id="s_location_x" name="s_location_x" value="">
+<input type="hidden" id="s_location_y" name="s_location_y" value="">
+
+<!-- 확인 or 취소 -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="s_confirm"></label>
+  <div class="col-md-8">
+    <button id="s_confirm" name="s_confirm" class="btn btn-success">확인</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <button id="s_cancel" name="s_cancel" class="btn btn-danger">취소</button>
+  </div>
+</div>
+
+</fieldset>
+
+</form>
+
+</body>
+</html>
