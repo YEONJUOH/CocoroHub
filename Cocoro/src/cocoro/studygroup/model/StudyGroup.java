@@ -17,7 +17,8 @@ public class StudyGroup {
 	private int s_abil_check;    // 0 or -1
 	private double s_location_x;
 	private double s_location_y;
-    private String s_online;    // T or F
+	private String address;
+	private String s_online;    // T or F
     private String s_offline;   // T or F
     private String s_mento_check;  // T or F
     private String s_kind_check;  // T or F (스터디의 종류 선택, 폐쇄 or개방. 폐쇄면 T)
@@ -144,6 +145,14 @@ public class StudyGroup {
 
 	public void setS_location_y(double s_location_y) {
 		this.s_location_y = s_location_y;
+	}
+	
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getS_online() {
