@@ -6,6 +6,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="cocoro.user.model.Users" alias="Users"/>		
+		<typeAlias type="cocoro.studygroup.model.StudyGroup" alias="StudyGroup"/>		
 	</typeAliases>
 	
 	<environments default="development">
@@ -20,6 +21,7 @@
 	<mappers>
 		<!--형태로 된 XML 파일추가시키는곳 <mapper resource="kosta/mapper/Board.xml"/>  -->
 		<mapper resource="cocoro/xml/Users.xml"/>
+		<mapper resource="cocoro/xml/StudyGroup.xml"/>
 		
 	</mappers>
 	
