@@ -30,26 +30,38 @@ public class StudyGroup {
     private int s_total_hit;
     private Timestamp s_history;
 	
-    private String s_t_start;    // 스터디 시작시간
-    private String s_t_end;      // 스터디 끝 시간
+    private int s_t_start;    // 스터디 시작시간
+    private int s_t_end;      // 스터디 끝 시간
     
-    public String getS_t_start() {
+   
+
+	public StudyGroup(){}
+	
+	
+	
+	public int getS_t_start() {
 		return s_t_start;
 	}
 
-	public void setS_t_start(String s_t_start) {
+
+
+	public void setS_t_start(int s_t_start) {
 		this.s_t_start = s_t_start;
 	}
 
-	public String getS_t_end() {
+
+
+	public int getS_t_end() {
 		return s_t_end;
 	}
 
-	public void setS_t_end(String s_t_end) {
+
+
+	public void setS_t_end(int s_t_end) {
 		this.s_t_end = s_t_end;
 	}
 
-	public StudyGroup(){}
+
 
 	public int getS_id() {
 		return s_id;
