@@ -10,25 +10,27 @@ public class StudyGroup {
 	private int s_leader_id;
 	private String s_max_member; // 스터디 참여가능 인원수
 	private String s_fix_member; // 스터디원 모집을 종료 yes or no (T면 yes, F면 no)
-	private Timestamp s_start;
-	private Timestamp s_end;
+	private String s_start;
+	private String s_end;
 	
 	private String s_attend_check;   // T or F
 	private int s_abil_check;    // 0 or -1
 	private double s_location_x;
 	private double s_location_y;
-	private String address;
+	private String s_address;
+	
+
 	private String s_online;    // T or F
     private String s_offline;   // T or F
     private String s_mento_check;  // T or F
     private String s_kind_check;  // T or F (스터디의 종류 선택, 폐쇄 or개방. 폐쇄면 T)
     private String s_time_check;  // T or F
     private int s_deposit;   // 0 이상이면 디파짓기능 사용, -1은 사용안함
-    private Timestamp s_last_act;
+    private String s_last_act;
     private String s_tag; // 스터디의 관심사
     private int s_recent_hit; 
     private int s_total_hit;
-    private Timestamp s_history;
+    private String s_history;
 	
     private int s_t_start;    // 스터디 시작시간
     private int s_t_end;      // 스터디 끝 시간
@@ -38,6 +40,17 @@ public class StudyGroup {
 	public StudyGroup(){}
 	
 	
+	public String getS_address() {
+		return s_address;
+	}
+
+
+
+	public void setS_address(String s_address) {
+		this.s_address = s_address;
+	}
+
+
 	
 	public int getS_t_start() {
 		return s_t_start;
@@ -111,21 +124,6 @@ public class StudyGroup {
 		this.s_fix_member = s_fix_member;
 	}
 
-	public Timestamp getS_start() {
-		return s_start;
-	}
-
-	public void setS_start(Timestamp s_start) {
-		this.s_start = s_start;
-	}
-
-	public Timestamp getS_end() {
-		return s_end;
-	}
-
-	public void setS_end(Timestamp s_end) {
-		this.s_end = s_end;
-	}
 
 	public String getS_attend_check() {
 		return s_attend_check;
@@ -159,13 +157,6 @@ public class StudyGroup {
 		this.s_location_y = s_location_y;
 	}
 	
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
 
 	public String getS_online() {
 		return s_online;
@@ -215,14 +206,6 @@ public class StudyGroup {
 		this.s_deposit = s_deposit;
 	}
 
-	public Timestamp getS_last_act() {
-		return s_last_act;
-	}
-
-	public void setS_last_act(Timestamp s_last_act) {
-		this.s_last_act = s_last_act;
-	}
-
 	public String getS_tag() {
 		return s_tag;
 	}
@@ -247,13 +230,76 @@ public class StudyGroup {
 		this.s_total_hit = s_total_hit;
 	}
 
-	public Timestamp getS_history() {
+
+
+	public String getS_start() {
+		return s_start;
+	}
+
+
+
+	public void setS_start(String s_start) {
+		this.s_start = s_start;
+	}
+
+
+
+	public String getS_end() {
+		return s_end;
+	}
+
+
+
+	public void setS_end(String s_end) {
+		this.s_end = s_end;
+	}
+
+
+
+	public String getS_last_act() {
+		return s_last_act;
+	}
+
+
+
+	public void setS_last_act(String s_last_act) {
+		this.s_last_act = s_last_act;
+	}
+
+
+
+	public String getS_history() {
 		return s_history;
 	}
 
-	public void setS_history(Timestamp s_history) {
+
+
+	public void setS_history(String s_history) {
 		this.s_history = s_history;
-	};
-    
+	}
+
+
+	@Override
+	public String toString() {
+		return "StudyGroup [s_id=" + s_id + ", s_name=" + s_name + ", s_intro="
+				+ s_intro + ", s_leader_id=" + s_leader_id + ", s_max_member="
+				+ s_max_member + ", s_fix_member=" + s_fix_member
+				+ ", s_start=" + s_start + ", s_end=" + s_end
+				+ ", s_attend_check=" + s_attend_check + ", s_abil_check="
+				+ s_abil_check + ", s_location_x=" + s_location_x
+				+ ", s_location_y=" + s_location_y + ", s_address=" + s_address
+				+ ", s_online=" + s_online + ", s_offline=" + s_offline
+				+ ", s_mento_check=" + s_mento_check + ", s_kind_check="
+				+ s_kind_check + ", s_time_check=" + s_time_check
+				+ ", s_deposit=" + s_deposit + ", s_last_act=" + s_last_act
+				+ ", s_tag=" + s_tag + ", s_recent_hit=" + s_recent_hit
+				+ ", s_total_hit=" + s_total_hit + ", s_history=" + s_history
+				+ ", s_t_start=" + s_t_start + ", s_t_end=" + s_t_end + "]";
+	}
+
+
+
+
+
     
 }

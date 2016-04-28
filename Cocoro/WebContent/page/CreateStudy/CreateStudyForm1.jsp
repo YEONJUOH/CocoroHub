@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("utf-8");
+	int u_id = 0; // session.getAttribute("u_id");
+	
+%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,18 +14,42 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="../js/carousel.js"></script>
 <style type="text/css">
-#penalty_set{margin-left:75px;}
-#set_deposit{margin-left:15px;margin-top:5px;}
-#confirm{margin-left:60px;margin-bottom:60px;}
-#deposit_attribute{margin-top:20px;margin-left:5px;}
+#comeon{margin-left:-53px;margin-top:7px;}
+#s_deposit_set{margin-left:-260px;}
+#won{margin-left:-280px;padding-top:7px;}
 </style>
-<title>Insert title here</title>
 
- 
+<script type="text/javascript">
+$(document).ready(function() 
+{
+	$('#s_deposit-1').click(function()
+	{
+		$('#s_deposit_set').attr('disabled','true');
+	});
+	$('#s_deposit-0').click(function () 
+	{
+		$('#s_deposit_set').removeAttr('disabled');
+	});
+	
+	$('#s_time_check-1').click(function()
+	{
+		$('#s_t_start').attr('disabled','true');
+		$('#s_t_end').attr('disabled','true');
+	});
+ 	$('#s_time_check-0').click(function () 
+	{
+		$('#s_t_start').removeAttr('disabled');
+		$('#s_t_end').removeAttr('disabled');
+	});
+	
+});	
+</script>
+
+<title>Insert title here</title>
 </head>
 <body>
 
-<form class="form-horizontal">
+<form class="form-horizontal" action="CreateStudyForm2.jsp" method="post">
 <fieldset>
 
 <!-- 스터디 만들기  -->
@@ -43,6 +72,7 @@
   </div>
 </div>
 <br>
+
 
 <!-- 키워드 설정 -->
 <div class="form-group">
@@ -105,6 +135,144 @@
 </div>
 <br>
 
+<!-- 스터디 시간 설정 -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="s_time_check">스터디 시간 설정</label>
+  <div class="col-md-4">
+    <label class="radio-inline" for="s_time_check-0">
+      <input type="radio" name="s_time_check" id="s_time_check-0" value="T" checked="checked">
+      사용함
+    </label>
+    <label class="radio-inline" for="s_time_check-1">
+      <input type="radio" name="s_time_check" id="s_time_check-1" value="F">
+      사용안함
+    </label>
+   
+  </div>
+  <div class="col-md-2 padding-zero" style="margin-left:-250px;">
+    <select class="form-control" id="s_t_start" name="s_t_start">
+                              <option>00:00am</option>
+                              <option>00:30am</option>
+                              <option>01:00am</option>
+                              <option>01:30am</option>
+                              <option>02:00am</option>
+                              <option>02:30am</option>
+                              <option>03:00am</option>
+                              <option>03:30am</option>
+                              <option>04:00am</option>
+                              <option>04:30am</option>
+                              <option>05:00am</option>
+                              <option>05:30am</option>
+                              <option>06:00am</option>
+                              <option>06:30am</option>
+                              <option>07:00am</option>
+                              <option>07:30am</option>
+                              <option>08:00am</option>
+                              <option>08:30am</option>
+                              <option>09:00am</option>
+                              <option>09:30am</option>
+                              <option>10:00am</option>
+                              <option>10:30am</option>
+                              <option>11:00am</option>
+                              <option>11:30am</option>
+                              <option>12:00pm</option>
+                              <option>12:30pm</option>
+                              <option>13:00pm</option>
+                              <option>13:30pm</option>
+                              <option>14:00pm</option>
+                              <option>14:30pm</option>
+                              <option>15:00pm</option>
+                              <option>15:30pm</option>
+                              <option>12:00pm</option>
+                              <option>12:30pm</option>
+                              <option>13:00pm</option>
+                              <option>13:30pm</option>
+                              <option>14:00pm</option>
+                              <option>14:30pm</option>
+                              <option>15:00pm</option>
+                              <option>15:30pm</option>
+                              <option>16:00pm</option>
+                              <option>16:30pm</option>
+                              <option>17:00pm</option>
+                              <option>17:30pm</option>
+                              <option>18:00pm</option>
+                              <option>18:30pm</option>
+                              <option>19:00pm</option>
+                              <option>19:30pm</option>
+                              <option>20:00pm</option>
+                              <option>20:30pm</option>
+                              <option>21:00pm</option>
+                              <option>21:30pm</option>
+                              <option>22:00pm</option>
+                              <option>22:30pm</option>
+                              <option>23:00pm</option>
+                              <option>23:30pm</option>
+                           </select>
+  </div>
+  <div class="col-md-1"><label for="to" id="comeon">~</label></div>
+  <div class="col-md-2 padding-zero" style="margin-left:-140px;">
+      <select class="form-control" id="s_t_end" name="s_t_end">
+                              <option>00:00am</option>
+                              <option>00:30am</option>
+                              <option>01:00am</option>
+                              <option>01:30am</option>
+                              <option>02:00am</option>
+                              <option>02:30am</option>
+                              <option>03:00am</option>
+                              <option>03:30am</option>
+                              <option>04:00am</option>
+                              <option>04:30am</option>
+                              <option>05:00am</option>
+                              <option>05:30am</option>
+                              <option>06:00am</option>
+                              <option>06:30am</option>
+                              <option>07:00am</option>
+                              <option>07:30am</option>
+                              <option>08:00am</option>
+                              <option>08:30am</option>
+                              <option>09:00am</option>
+                              <option>09:30am</option>
+                              <option>10:00am</option>
+                              <option>10:30am</option>
+                              <option>11:00am</option>
+                              <option>11:30am</option>
+                              <option>12:00pm</option>
+                              <option>12:30pm</option>
+                              <option>13:00pm</option>
+                              <option>13:30pm</option>
+                              <option>14:00pm</option>
+                              <option>14:30pm</option>
+                              <option>15:00pm</option>
+                              <option>15:30pm</option>
+                              <option>12:00pm</option>
+                              <option>12:30pm</option>
+                              <option>13:00pm</option>
+                              <option>13:30pm</option>
+                              <option>14:00pm</option>
+                              <option>14:30pm</option>
+                              <option>15:00pm</option>
+                              <option>15:30pm</option>
+                              <option>16:00pm</option>
+                              <option>16:30pm</option>
+                              <option>17:00pm</option>
+                              <option>17:30pm</option>
+                              <option>18:00pm</option>
+                              <option>18:30pm</option>
+                              <option>19:00pm</option>
+                              <option>19:30pm</option>
+                              <option>20:00pm</option>
+                              <option>20:30pm</option>
+                              <option>21:00pm</option>
+                              <option>21:30pm</option>
+                              <option>22:00pm</option>
+                              <option>22:30pm</option>
+                              <option>23:00pm</option>
+                              <option>23:30pm</option>
+                           </select>
+  
+  </div>
+</div>
+<br>
 
 <!-- 디파짓 기능 -->
 
@@ -112,84 +280,33 @@
   <label class="col-md-4 control-label" for="s_deposit">디파짓 기능</label>
   <div class="col-md-4">
     <label class="radio-inline" for="s_deposit-0">
-     <input type="radio" name="s_deposit" id="s_deposit-0" value="0" checked="checked">
+     <input type="radio" name="s_deposit_check" id="s_deposit-0" value="0" checked="checked">
       사용함
     </label>
     <label class="radio-inline" for="s_deposit-1">
-          <input type="radio" name="s_deposit" id="s_deposit-1" value="-1">
+    <input type="radio" name="s_deposit_check" id="s_deposit-1" value="-1">
       사용안함
     </label>
-    &nbsp;&nbsp;&nbsp;
-  <button type="button" class="btn btn-primary" id="s_deposit_set" name="s_deposit_set" data-toggle="modal" data-target=".deposit_set">디파짓 설정</button>
-
-	
-	<div class="modal fade deposit_set" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-    	<div class="modal-dialog modal-md">
-        	<div class="modal-content">
-   	<!-- 여기부터 디파짓 모달  -->
- 
-		<fieldset>
-		<table class="table table-striped">
-			<div class="row" id="deposit_attribute">
-  				<div class="col-md-4">
-  					<label class="col-md-3 control-label" for="p_id">No.</label>  
-  				</div>
-  				<div class="col-md-4">
- 					<label class="col-md-3 control-label" for="p_name">Name</label>
-  				</div>
-  				<div class="col-md-4">
-    				<label class="col-md-3 control-label" for="p_price">Value</label>
- 				 </div>
-			</div>
-			<hr>
-			<div class="row" id="penalty_show">
- 					<label class="col-md-4 control-label" style="left:-130px;" for="show_p_id">1</label>
-  					<label class="col-md-4 control-label" style="left:-130px;" for="show_p_name">지각</label>
-  					<label class="col-md-4 control-label" style="left:-130px;" for="show_p_price">500원</label>
-  			</div><br>
-			<hr>
-			<div class="row" id="penalty_set">
-  				<div class="col-md-4">
-   					<input type="text" id="p_name" name="p_name" class="form-control" placeholder="예)결석 ">
-  				</div>
-  				<div class="col-md-4">
-     				<input type="text" id="p_price" name="p_price" class="form-control" placeholder="예)10000원">
-  				</div>
-  				<div class="col-md-4">
- 				 	<button id="penaltyAdd" name="penaltyAdd" class="btn btn-primary">추가</button>
-		  		</div>
-			</div><br>
-		</table>
-		
-		<div class="row" id="deposit_set">
-				<label class="col-md-5 control-label" for="p_id">&nbsp;&nbsp;디파짓 설정</label>
-  				<input class="col-md-3" type="text" id="set_deposit" name="set_deposit" class="form-control" placeholder="예)50000원">
-			</div><br>
-			
-		<div class="center-block" id="confirm">
- 	 		<label class="col-md-3 control-label" for="d_confirm"></label>
-  			<div class="col-md-9">
-   				<button id="s_confirm" name="d_confirm" class="btn btn-success">확인</button>
-    			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-  				<button id="s_cancel" name="d_cancel" class="btn btn-danger">취소</button>
-		    </div>
-		</div>
-	</fieldset>
-   
-  
-   			 </div>
- 		 </div>
-	</div> 
   </div>
-</div>
-
+  <div class="col-md-4">
+  	<div class="col-md-7">
+	  <input type="text" id="s_deposit_set" name="s_deposit" class="form-control" value="" placeholder="디파짓 액수를 입력하세요">
+	</div>
+	  <label class="input-inline col-md-5" id="won" for="s_deposit_set">원</label>  
+  </div>
+ </div>
+ 
 <br><br>
+
+<!-- 히든인풋 -->
+<input type="hidden" name="u_id" value="<%=u_id%>">
+
 
 <!-- 계속 버튼  -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="s_next"></label>
   <div class="col-md-4">
-    <button id="s_next" name="s_next" class="btn btn-primary">계속</button>
+    <input type="submit" id="s_next" name="s_next" class="btn btn-primary" value="계속">
   </div>
 </div>
 </fieldset>

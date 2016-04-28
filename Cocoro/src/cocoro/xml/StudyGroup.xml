@@ -20,4 +20,15 @@
 		select max(s_id) from study
 	</select>
 	
+	<select id="listStudyGroup" resultType="StudyGroup">
+		select * from study
+	</select>
+	
+	<select id="selectStudy" parameterType="int" resultType="StudyGroup">
+		select * from study where s_id = #{s_id}
+	</select>
+	
+	<update id="updateHit" parameterType="StudyGroup">
+		update study set s_total_hit = #{s_total_hit} where s_id = #{s_id}
+	</update>
 </mapper>
