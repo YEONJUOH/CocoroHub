@@ -18,13 +18,11 @@ body{
 	if(main == null){
 		main = "Main.jsp";
 	}
-	else{
-		main = request.getParameter("Main");
-	}
+	
 %>
 <body>
-	<jsp:include page="header.jsp" />
-	<jsp:include page="<%=main%>" />
-	<jsp:include page="footer.jsp" />
+<%-- 	<jsp:include page="header.jsp" /> --%>
+<%-- 	<jsp:include page="<%=main%>" /> --%>
+<%-- 	<jsp:include page="footer.jsp" /> --%>
 </body>
 </html>
