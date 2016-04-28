@@ -1,5 +1,7 @@
 package cocoro.studygroup.service;
 
-public class StudyActivityService {
+import cocoro.studygroup.dao.StudyGroupDao;
 
+public class StudyActivityService {
+	
 }

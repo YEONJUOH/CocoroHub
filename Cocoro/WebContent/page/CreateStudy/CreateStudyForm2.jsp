@@ -1,11 +1,67 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%
+	request.setCharacterEncoding("utf-8");
+	
+	String id = request.getParameter("u_id");
+	int u_id = 0;
+	if(id != null)
+	{
+		u_id = Integer.parseInt(id);
+	}
+	
+	
+	
+	String deposit_check = request.getParameter("s_deposit_check");
+	int s_deposit_check = 0;
+	int s_deposit = -1;
+	if(deposit_check != null)
+	{
+		s_deposit_check = Integer.parseInt(deposit_check);
+	}
+	
+	if(s_deposit_check != -1)
+	{
+		String deposit = request.getParameter("s_deposit");
+		
+		if(deposit != null)
+		{
+			s_deposit = Integer.parseInt(deposit);
+		}
+	}
+	
+	String s_t_start = request.getParameter("s_t_start");
+	String s_t_end = request.getParameter("s_t_end");
+	
+
+	
+	if(s_t_start == null)
+	{
+		s_t_start = "000000";		
+	}
+	if(s_t_end == null)
+	{
+		s_t_end = "000000";
+	}
+
+	
+	String s_name = request.getParameter("s_name");
+	String s_intro = request.getParameter("s_intro");
+	String s_tag = request.getParameter("s_tag");
+	String s_mento_check = request.getParameter("s_mento_check");
+	String s_kind_check = request.getParameter("s_kind_check");
+	String s_max_member = request.getParameter("s_max_member");
+	String s_time_check = request.getParameter("s_time_check");
+	
+%>    
+    
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -17,8 +73,8 @@
 <script src="sweetalert.min.js"></script> 
 <link rel="stylesheet" type="text/css" href="sweetalert.css">
 <style type="text/css">  
- .ui-datepicker{ font-size: 13.2px; width: 293px; height:295px; z-index:100; margin:0px;}  
-</style>  
+ .ui-datepicker{ font-size: 13.2px; width: 293px; height:295px; z-index:100; margin:0px;}
+</style>
 <style>
 #s_add{margin-left: -55px;}
 #label_location{padding-top: 5px;}
@@ -62,9 +118,21 @@
 #pagination a {display:inline-block;margin-right:10px;}
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
 </style>
-  <script type="text/javascript">
+<script type="text/javascript">
+$(document).ready(function() 
+		 {
+		 	$('#s_abil_check-0').click(function()
+		 	{
+		 		$('#s_abil').removeAttr('disabled');
+		 	});
+		 	$('#s_abil_check-1').click(function () 
+		 	{
+		 		$('#s_abil').attr('disabled','true');
+		 	});
+		 });	
+</script>
+<script type="text/javascript">
  (function($){
-	 
   $(function() {
 	  var dtNow = new Date(); 
 	    $( "#from" ).datepicker({
@@ -110,6 +178,10 @@
 	    });
 	  });
  })(jQuery);
+ 
+
+
+ 
   </script>
 </head>
 <body>
@@ -322,37 +394,6 @@ function removeMarker() {
     markers = [];
 }
 
-// 검색결과 목록 하단에 페이지번호를 표시는 함수입니다
-function displayPagination(pagination) {
-    var paginationEl = document.getElementById('pagination'),
-        fragment = document.createDocumentFragment(),
-        i; 
-
-    // 기존에 추가된 페이지번호를 삭제합니다
-    while (paginationEl.hasChildNodes()) {
-        paginationEl.removeChild (paginationEl.lastChild);
-    }
-
-    for (i=1; i<=pagination.last; i++) {
-        var el = document.createElement('a');
-        el.href = "#";
-        el.innerHTML = i;
-
-        if (i===pagination.current) {
-            el.className = 'on';
-        } else {
-            el.onclick = (function(i) {
-                return function() {
-                    pagination.gotoPage(i);
-                }
-            })(i);
-        }
-
-        fragment.appendChild(el);
-    }
-    paginationEl.appendChild(fragment);
-}
-
 // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
 // 인포윈도우에 장소명을 표시합니다
 function displayInfowindow(marker, title) {
@@ -462,7 +503,7 @@ function searchDetailAddrFromCoords(coords, callback) {
 </div>
 </div>
 
-<form class="form-horizontal">
+<form class="form-horizontal" action="createOk.jsp" method="post">
 <fieldset>
 
 <!-- 스터디 기간 -->
@@ -470,57 +511,41 @@ function searchDetailAddrFromCoords(coords, callback) {
   <label class="col-md-4 control-label" for="s_start">스터디 기간</label>  
   	<div class="col-md-4" style="padding-top:5px; left:1px;">
 		<label for="from"></label>
-		<input type="text" id="from" name="from">
+		<input type="text" id="from" name="s_start">
 		<label for="to">~</label>
-		<input type="text" id="to" name="to">
+		<input type="text" id="to" name="s_end">
   </div>
 </div>
  
 <br>
 
-
-<!-- 스터디 시간 설정 -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="s_time_check">스터디 시간 설정</label>
-  <div class="col-md-4">
-    <label class="radio-inline" for="s_time_check-0">
-      <input type="radio" name="s_time_check" id="s_time_check-0" value="T" checked="checked">
-      사용함
-    </label>
-    <label class="radio-inline" for="s_time_check-1">
-      <input type="radio" name="s_time_check" id="s_time_check-1" value="F">
-      사용안함
-    </label>
-  </div>
-</div>
-<br>
-
-
 <!-- 스터디 장소  -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="s_online">스터디 장소</label>
-  <div class="col-md-4">
-  <div class="checkbox">
-    <label for="s_online-0">
-      <input type="checkbox" name="s_online" id="s_online-0" value="T">
-      온라인
-    </label>
+  <div class="col-md-4" required="">
+  	<div class="radio">
+    	<label for="s_online-0">
+      	<input type="radio" name="online" id="s_online-0" value="T" checked="checked">
+      	온라인
+    	</label>
 	</div>
-  <div class="checkbox">
-    <label for="s_online-1">
-      <input type="checkbox" name="s_online" id="s_online-1" value="F">
-      오프라인
-    </label>
+  	<div class="radio">
+    	<label for="s_online-1">
+      	<input type="radio" name="online" id="s_online-1" value="F">
+      	오프라인
+    	</label>
+	</div>
+	<div class="checkbox">
+    	<label for="s_online-1">
+      	<input type="checkbox" name="online_check" id="s_online-1" value="T">
+      	온라인과 오프라인 병행
+    	</label>
 	</div>
   </div>
 </div>
 <br>
 
      	
-    </div>
-  </div>
-</div>
-</div>
 
 <!-- 출석체크 기능 -->
 <div class="form-group">
@@ -544,7 +569,7 @@ function searchDetailAddrFromCoords(coords, callback) {
   <label class="col-md-4 control-label" for="s_abil_check">실력조건 설정</label>
   <div class="col-md-2">
     <label class="radio-inline" for="s_abil_check-0">
-      <input type="radio" name="s_abil_check" id="s_abil_check-0" checked="checked">
+      <input type="radio" name="s_abil_check" id="s_abil_check-0" value="-1" checked="checked">
       사용함
     </label>
     <label class="radio-inline" for="s_abil_check-1">
@@ -553,7 +578,7 @@ function searchDetailAddrFromCoords(coords, callback) {
     </label>
   </div>
    <div class="col-md-1" style="left:-40px;">
-    <select class="form-control" id="s_abil" name="s_abil_check">
+    <select class="form-control" id="s_abil" name="s_abil" required="">
                               <option>1</option>
                               <option>2</option>
                               <option>3</option>
@@ -563,22 +588,35 @@ function searchDetailAddrFromCoords(coords, callback) {
                               <option>7</option>
                               <option>8</option>
                               <option>9</option>
-                           </select>
-     </div>
+    </select>
+  </div>
 </div>
 <br><br>
- <!-- 주소,위도,경도 보내기 --> 
-<input type="hidden" id="s_address" name="s_address" value="">
-<input type="hidden" id="s_location_x" name="s_location_x" value="">
-<input type="hidden" id="s_location_y" name="s_location_y" value="">
+
+
+ <!-- 인풋 히든 보내기 --> 
+<input type="hidden" id="s_address" name="s_address" value=null>
+<input type="hidden" id="s_location_x" name="s_location_x" value=0>
+<input type="hidden" id="s_location_y" name="s_location_y" value=0>
+<input type="hidden" name="s_leader_id" value="<%=u_id%>">
+<input type="hidden" name="s_deposit" value="<%=s_deposit%>">
+<input type="hidden" name="s_name" value="<%=s_name%>">
+<input type="hidden" name="s_intro" value="<%=s_intro%>">
+<input type="hidden" name="s_tag" value="<%=s_tag%>">
+<input type="hidden" name="s_mento_check" value="<%=s_mento_check%>">
+<input type="hidden" name="s_kind_check" value="<%=s_kind_check%>">
+<input type="hidden" name="s_max_member" value="<%=s_max_member%>">
+<input type="hidden" name="s_time_check" value="<%=s_time_check%>">
+<input type="hidden" name="t_start" value="<%=s_t_start%>">
+<input type="hidden" name="t_end" value="<%=s_t_end%>">
 
 <!-- 확인 or 취소 -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="s_confirm"></label>
   <div class="col-md-8">
-    <button id="s_confirm" name="s_confirm" class="btn btn-success">확인</button>
+    <input type="submit" id="s_confirm" name="s_confirm" class="btn btn-success" value="확인">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-    <button id="s_cancel" name="s_cancel" class="btn btn-danger">취소</button>
+    <input type="reset" id="s_cancel" name="s_cancel" class="btn btn-danger" value="취소">
   </div>
 </div>
 
