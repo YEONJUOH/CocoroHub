@@ -14,7 +14,6 @@
 	{
 		s_id = Integer.parseInt(study_id);
 	}
-	
 	String rank = request.getParameter("rank_for_apply");
 	if(rank != null)
 	{

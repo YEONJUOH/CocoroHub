@@ -12,7 +12,6 @@
 	}
 	
 	
-	
 	String deposit_check = request.getParameter("s_deposit_check");
 	int s_deposit_check = 0;
 	int s_deposit = -1;

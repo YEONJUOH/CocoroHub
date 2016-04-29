@@ -17,7 +17,6 @@
 #s_deposit_set{margin-left:-260px;}
 #won{margin-left:-280px;padding-top:7px;}
 </style>
-
 <script type="text/javascript">
 $(document).ready(function() 
 {

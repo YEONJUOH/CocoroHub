@@ -9,7 +9,6 @@
 <jsp:setProperty property="*" name="studygroup"/>
 <%
 
-	
 	/* time_set */ 
 
 	String start = request.getParameter("t_start");

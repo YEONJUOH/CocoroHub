@@ -12,7 +12,6 @@
 	StudyGroup studygroup = new StudyGroup();
 	List<StudyGroup> list = service.listStudyGroupService(studygroup);
 	request.setAttribute("list", list);
-
 %>   
     
     
