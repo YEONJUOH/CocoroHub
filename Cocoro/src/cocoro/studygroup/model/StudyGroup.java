@@ -12,7 +12,6 @@ public class StudyGroup {
 	private String s_fix_member; // 스터디원 모집을 종료 yes or no (T면 yes, F면 no)
 	private String s_start;
 	private String s_end;
-	
 	private String s_attend_check;   // T or F
 	private int s_abil_check;    // 0 or -1
 	private double s_location_x;

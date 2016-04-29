@@ -13,5 +13,4 @@ public interface StudyGroupMapper {
 	public StudyGroup selectStudy(int s_id);
 	public int updateHit(StudyGroup studygroup);
 	public int applyStudy(HashMap<String, Integer> map);
-	
 }

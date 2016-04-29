@@ -20,7 +20,6 @@ public class StudyGroupDao {
 	public static StudyGroupDao getInstance() {
 		return dao;
 	}
-
 	public SqlSessionFactory getSqlSessionFactory(){
 		String resource = "cocoro/mybatis-config.xml";
 		InputStream input = null;
@@ -81,7 +80,6 @@ public class StudyGroupDao {
 	public int updateHit(StudyGroup studygroup) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		int re = -1;
-		
 		try 
 		{
 			re = sqlSession.getMapper(StudyGroupMapper.class).updateHit(studygroup);

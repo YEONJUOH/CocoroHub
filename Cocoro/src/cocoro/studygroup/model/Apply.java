@@ -9,7 +9,6 @@ public class Apply {
 	
 	public Apply(){};
 	
-
 	public int getApply_id() {
 		return apply_id;
 	}

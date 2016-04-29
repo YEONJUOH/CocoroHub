@@ -3,7 +3,6 @@
 <%
 	request.setCharacterEncoding("utf-8");
 	int u_id = 0; // session.getAttribute("u_id");
-	
 %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

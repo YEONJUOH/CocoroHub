@@ -13,7 +13,6 @@
 		) values (
 			#{s_id}, #{s_name}, #{s_intro}, #{s_leader_id}, #{s_max_member}, 'F' , #{s_start}, #{s_end}, #{s_attend_check}, #{s_abil_check}, #{s_location_x}, #{s_location_y}, #{s_address}, #{s_online}, #{s_offline}, #{s_mento_check}, #{s_kind_check}, #{s_time_check}, #{s_deposit}, SYSDATE , #{s_tag}, 0, 0, SYSDATE, #{s_t_start}, #{s_t_end}
 		)
-		
 	</insert>
 	
 	<select id="selectS_id" resultType="Integer">

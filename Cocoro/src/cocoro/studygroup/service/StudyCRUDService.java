@@ -14,7 +14,6 @@ public class StudyCRUDService {
 		dao = StudyGroupDao.getInstance();
 		return service;
 	}
-	
 	public int createStudyGruopService(StudyGroup studygroup){
 		studygroup.setS_id(dao.selectS_id()+1);
 		System.out.println(studygroup.getS_id());
@@ -25,7 +24,6 @@ public class StudyCRUDService {
 		List<StudyGroup> list = dao.listStudyGroup(studygroup);
 		return list;
 	}
-	
 	public StudyGroup selectStudyService(int s_id){
 		return dao.selectStudy(s_id);
 	}
