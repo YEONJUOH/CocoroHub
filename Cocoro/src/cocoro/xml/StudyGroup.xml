@@ -11,7 +11,7 @@
 		insert into study(
 			s_id, s_name, s_intro, s_leader_id, s_max_member, s_fix_member, s_start, s_end, s_attend_check, s_abil_check, s_location_x, s_location_y, s_address, s_online, s_offline, s_mento_check, s_kind_check, s_time_check, s_deposit, s_last_act, s_tag, s_recent_hit, s_total_hit, s_history, s_t_start, s_t_end
 		) values (
-			#{s_id}, #{s_name}, #{s_intro}, #{s_leader_id}, #{s_max_member}, 'F', SYSDATE, SYSDATE, #{s_attend_check}, #{s_abil_check}, #{s_location_x}, #{s_location_y}, #{s_address}, #{s_online}, #{s_offline}, #{s_mento_check}, #{s_kind_check}, #{s_time_check}, #{s_deposit}, SYSDATE , #{s_tag}, 0, 0, SYSDATE, #{s_t_start}, #{s_t_end}
+			#{s_id}, #{s_name}, #{s_intro}, #{s_leader_id}, #{s_max_member}, 'F' , #{s_start}, #{s_end}, #{s_attend_check}, #{s_abil_check}, #{s_location_x}, #{s_location_y}, #{s_address}, #{s_online}, #{s_offline}, #{s_mento_check}, #{s_kind_check}, #{s_time_check}, #{s_deposit}, SYSDATE , #{s_tag}, 0, 0, SYSDATE, #{s_t_start}, #{s_t_end}
 		)
 		
 	</insert>
@@ -31,4 +31,12 @@
 	<update id="updateHit" parameterType="StudyGroup">
 		update study set s_total_hit = #{s_total_hit} where s_id = #{s_id}
 	</update>
+	
+	<insert id="applyStudy" parameterType="java.util.HashMap">
+		insert into apply(
+			apply_id, u_id, s_id, rank_for_apply
+		) values(
+			(select nvl(Max(apply_id),0) from apply)+1,#{u_id},#{s_id},#{rank_for_apply}
+		)
+	</insert>
 </mapper>

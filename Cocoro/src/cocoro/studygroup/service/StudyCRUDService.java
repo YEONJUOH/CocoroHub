@@ -1,5 +1,6 @@
 package cocoro.studygroup.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import cocoro.studygroup.dao.StudyGroupDao;
@@ -31,5 +32,13 @@ public class StudyCRUDService {
 	
 	public int updateHit(StudyGroup studygroup){
 		return dao.updateHit(studygroup);
+	}
+	
+	public int applyService(int u_id, int s_id, int rank_for_apply){
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("u_id", u_id);
+		map.put("s_id", s_id);
+		map.put("rank_for_apply", rank_for_apply);
+		return dao.applyStudy(map);
 	}
 }

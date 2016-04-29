@@ -37,7 +37,7 @@ public class StudyGroup {
     
    
 
-	public StudyGroup(){}
+	public StudyGroup(){};
 	
 	
 	public String getS_address() {

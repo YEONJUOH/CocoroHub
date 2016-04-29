@@ -1,6 +1,7 @@
 package cocoro.studygroup.dao;
 
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.jsp.tagext.TryCatchFinally;
@@ -84,6 +85,31 @@ public class StudyGroupDao {
 		try 
 		{
 			re = sqlSession.getMapper(StudyGroupMapper.class).updateHit(studygroup);
+			if(re > 0)
+			{
+				sqlSession.commit();
+			}
+			else
+			{
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			sqlSession.close();
+		}
+		return re;
+	}
+
+	
+
+	public int applyStudy(HashMap<String, Integer> map) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = -1;
+		
+		try 
+		{
+			re = sqlSession.getMapper(StudyGroupMapper.class).applyStudy(map);
 			if(re > 0)
 			{
 				sqlSession.commit();

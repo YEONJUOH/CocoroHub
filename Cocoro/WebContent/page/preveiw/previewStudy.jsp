@@ -5,6 +5,7 @@
 <%@page import="cocoro.studygroup.service.StudyCRUDService"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <% 
 	request.setCharacterEncoding("utf-8");
@@ -28,9 +29,24 @@
 	
 	request.setAttribute("studygroup", studygroup);
 
-	System.out.println(studygroup.getS_mento_check());
-%>       
-    
+		/* 스터디 시간계산 */
+       int s_t_start = 0;	
+	   int s_t_end = 0;
+	   int start_hour = 0;
+	   int start_min = 0;
+	   int end_hour = 0;
+	   int end_min = 0;
+	   String s_start_hour;
+	   
+       s_t_start = studygroup.getS_t_start();
+       s_t_end = studygroup.getS_t_end();
+       start_hour = s_t_start/60;
+       start_min = s_t_start%60;
+       end_hour = s_t_end/60;
+       end_min = s_t_end%60;
+       
+       
+%>            
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -44,6 +60,9 @@
 <script src="https://www.amcharts.com/lib/3/serial.js"></script>
 <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
 <script type="text/javascript">
+function fn_enter() {
+	location.href = "list.jsp"
+};
 var chart = AmCharts.makeChart( "chartdiv", {
 	  "type": "serial",
 	  "theme": "light",
@@ -59,6 +78,9 @@ var chart = AmCharts.makeChart( "chartdiv", {
 	  }, {
 	    "member": "최지웅",
 	    "rank": 8
+	  }, {
+		"member": "공장장",
+		"rank": 1
 	  }, {
 	    "member": "고석진",
 	    "rank": 6
@@ -262,7 +284,12 @@ span.tags
                    	</c:if>
                    </p>
                    <p><strong>디파짓:</strong>
+                   		<c:if test="${studygroup.s_deposit!=-1}">
     					<label>${studygroup.s_deposit}원</label>
+    					</c:if>
+    					<c:if test="${studygroup.s_deposit==-1}">
+    					<label>&nbsp;사용안함</label>
+    					</c:if>
     				</p>
     				<p><strong>출석체크: </strong>
     				<c:if test="${studygroup.s_attend_check=='T'}">
@@ -303,21 +330,29 @@ span.tags
     				</c:if>      
                     </p>
                 </div> 
+               
              <div class="col-xs-6 col-sm-6" id="second">
+             
             		<p style="margin-top:40px"></p>
              		<p><strong>오프라인 모임 위치: </strong>
-					   <label>서울시 가산동 103-1 이노플렉스</label>             	
+             		   <c:if test="${studygroup.s_address!='null'}">
+					   <label>${studygroup.s_address}</label>
+					   </c:if> 
+					   <c:if test="${studygroup.s_address=='null'}">
+					   <label>오프라인 모임 없음</label>
+					   </c:if>            	
              		<p style="margin-top:4px"></p>
    
-<div id="map" style="width:100%;height:200px;"></div>
+					<div id="map" style="width:100%;height:200px;"></div>
 
-<p id="infoDiv"></p>
-    
+					<p id="infoDiv"></p>
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=3cd0e2fbd6251c82935cf18a47f510a6&libraries=services"></script>
 <script>
+var s_location_x = ${studygroup.s_location_x};
+var s_location_y = ${studygroup.s_location_y};
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
-        center: new daum.maps.LatLng(37.47881934201458, 126.88100114585106), // 지도의 중심좌표
+        center: new daum.maps.LatLng(s_location_x, s_location_y), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
     };
 
@@ -333,31 +368,109 @@ map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
     infoDiv.innerHTML = message;
 
 </script>
-             	</p>
-             	</div>
+             	
+       			</div>
+       		
+       			
+             	<c:set var="start_year" value="${fn:substring(studygroup.s_start,0, 4)}"></c:set>
+             	<c:set var="start_month" value="${fn:substring(studygroup.s_start,5, 7)}"></c:set>
+             	<c:set var="start_day" value="${fn:substring(studygroup.s_start,8, 10)}"></c:set>
+             	<c:set var="end_year" value="${fn:substring(studygroup.s_end,0, 4)}"></c:set>
+             	<c:set var="end_month" value="${fn:substring(studygroup.s_end,5, 7)}"></c:set>
+             	<c:set var="end_day" value="${fn:substring(studygroup.s_end,8, 10)}"></c:set>
                        <p style="margin-top:20px"></p>
                     <p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;스터디 기간: </strong>
-                    	<label>2016년 5월 1일</label>
+                    	<label>${start_year}년&nbsp;${start_month}월&nbsp;${start_day}일</label>
                     	<label>~</label>
-                    	<label>2016년 7월 1일</label>                    	
+                    	<label>${end_year}년&nbsp;${end_month}월&nbsp;${end_day}일</label>                    	
                     </p>
-                 
+              
+            
                     <p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;스터디 시간: </strong>
-                    	<label>오후5시</label>
+                    	<c:if test="${studygroup.s_t_start<750}">                      
+                    	<label>오전&nbsp;<%=start_hour%>시</label>
+                    	</c:if>
+                    	<c:if test="${studygroup.s_t_start>750}">                      
+                    	<label>오후&nbsp;<%=start_hour-12%>시</label>
+                    	</c:if>
+                    	<c:if test="${studygroup.s_t_start%60!=0}">
+                    	<label>&nbsp;<%=start_min%>분</label>
+                    	</c:if>
                     	<label>~</label>
-                    	<label>오후7시</label>                    	
+                    	<c:if test="${studygroup.s_t_end<750}">                      
+                    	<label>오전&nbsp;<%=end_hour%>시</label>
+                    	</c:if>
+                    	<c:if test="${studygroup.s_t_end>750}">                      
+                    	<label>오후&nbsp;<%=end_hour-12%>시</label>
+                    	</c:if>
+                    	<c:if test="${studygroup.s_t_end%60!=0}">
+                    	<label><%=end_min%>분</label>
+                    	</c:if>
+                    	                    	
                     </p>
-    				
-    		
+    			
                     
     			
     				
                        
             </div>      
-           
             <div class="col-xs-12 text-center">
                 <div class="col-xs-12 col-sm-4 emphasis">
-                    <button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> 가입신청 </button>
+                 <c:if test="${studygroup.s_kind_check =='F'}">
+                 	<c:if test="${studygroup.s_abil_check > 0}">
+                 <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target=".rank_for_apply" ><span class="fa fa-plus-circle"></span> 가입신청 </button>
+					
+				<div class="modal fade rank_for_apply" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  					<div class="modal-dialog modal-sm">
+ 					   <div class="modal-content">
+ 					   		<strong><label>해당 스터디와 관련된 당신의 스킬레벨을 입력해주세요</label></strong>
+      						 <select class="form-control" id="rank_for_apply_check" name="rank_for_apply_check" value="" required="">
+                   		          <option value="1">1</option>
+                     	          <option value="2">2</option>
+                   	 	          <option value="3">3</option>
+                      	          <option value="4">4</option>
+                      		      <option value="5">5</option>
+                       	          <option value="6">6</option>
+                                  <option value="7">7</option>
+                         	      <option value="8">8</option>
+                       		      <option value="9">9</option>
+  							  </select>
+  							  <button class="btn btn-success btn-block" id="rank_confirm"> 확인 </button>
+  							  
+<script type="text/javascript">
+$(document).ready(function() 
+		 {
+		var rank = 0;
+		$('#rank_for_apply_check').change(function () {
+			rank = $(this).val();
+		});
+		$('#rank_confirm').click(function()
+		 	{
+				$('.rank_for_apply').hide();
+				fn_applyOk(rank);
+		 	});
+		 });
+		 
+function fn_applyOk(rank) {
+	location.href="applyOk.jsp?s_id=${studygroup.s_id}&rank_for_apply="+rank;
+}
+
+</script>
+ 					   </div>
+  					</div>
+				</div>
+                    </c:if>  
+                 </c:if>  
+                
+                 <c:if test="${studygroup.s_kind_check =='F'}">
+                 	<c:if test="${studygroup.s_abil_check < 1}">
+                  		<button type="button" class="btn btn-success btn-block" onclick="fn_applyOk()"><span class="fa fa-plus-circle"></span> 가입신청 </button>
+					</c:if>
+                </c:if>
+                 <c:if test="${studygroup.s_kind_check =='T'}">
+                    <button class="btn btn-success btn-block" onclick="fn_enter()"><span class="fa fa-plus-circle"></span> 입장하기 </button>
+                 </c:if>
+                 
                 </div>
             </div>
         </div>                 

@@ -121,6 +121,7 @@
 <script type="text/javascript">
 $(document).ready(function() 
 		 {
+			var offline_value = $('#s_online-1').val();
 		 	$('#s_abil_check-0').click(function()
 		 	{
 		 		$('#s_abil').removeAttr('disabled');
@@ -129,6 +130,17 @@ $(document).ready(function()
 		 	{
 		 		$('#s_abil').attr('disabled','true');
 		 	});
+		 	/* $('#s_confirm').click(function () {
+				if(offline_value=="F")
+					{
+						$('#s_showAddress').attr('required','true');
+					}
+				else if(offline_value=="T")
+					{
+						$('#s_showAddress').attr('required','true');
+					}
+				System.out.println(offline_value);
+			});  오프라인 컨트롤 */  
 		 });	
 </script>
 <script type="text/javascript">
