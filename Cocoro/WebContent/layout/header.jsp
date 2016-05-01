@@ -9,10 +9,17 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
+<style type="text/css">
+#cocoro_logo{
+	padding-top:3px;
+	margin:0px;
+}
+</style>
+
 </head>
 <body>
 <!-- 네비게이션바 -->
-	<div class="header_nav">
+  <div class="header_nav">
 	<nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
@@ -22,7 +29,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Cocoro</a>
+          <a class="navbar-brand" href="#" id="cocoro_logo"><img src="https://scontent.xx.fbcdn.net/hphotos-xpt1/v/t1.0-9/13124889_581340038707634_4921421907868847567_n.jpg?oh=de82812168f7859d174ec2575d46ad19&oe=579B009C"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">

@@ -11,8 +11,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="../../css/CreateStudy/CreateStudyForm1.css">
+<link rel="icon" type="image/x-icon" href="../../img/favicon.ico" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="../js/carousel.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/carousel.js"></script>
 <script type="text/javascript">
 $(document).ready(function() 
 {

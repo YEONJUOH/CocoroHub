@@ -1,8 +1,9 @@
 package cocoro.studygroup.model;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class StudyGroup {
+public class StudyGroup implements Serializable{
 	 
 	private int s_id;
 	private String s_name;

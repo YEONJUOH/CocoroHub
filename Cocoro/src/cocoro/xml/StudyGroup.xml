@@ -26,8 +26,12 @@
 	<select id="selectStudy" parameterType="int" resultType="StudyGroup">
 		select * from study where s_id = #{s_id}
 	</select>
-	
+<!-- 	
 	<update id="updateHit" parameterType="StudyGroup">
+		update study set s_total_hit = #{s_total_hit} where s_id = #{s_id}
+	</update>
+	 -->
+	<update id="updateHitcount" parameterType="StudyGroup">
 		update study set s_total_hit = #{s_total_hit} where s_id = #{s_id}
 	</update>
 	
@@ -38,4 +42,14 @@
 			(select nvl(Max(apply_id),0) from apply)+1,#{u_id},#{s_id},#{rank_for_apply}
 		)
 	</insert>
+	
+	<select id="selectUsers" parameterType="java.util.HashMap" resultType="Users">
+		select u.u_name, u.u_email
+		from users u, study s
+		where u.u_id = s.s_leader_id
+		and s.s_id = #{s_id}
+		and u.u_id = #{s_leader_id}
+	</select> 
+	
+	
 </mapper>

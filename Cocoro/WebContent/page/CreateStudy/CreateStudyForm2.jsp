@@ -67,8 +67,9 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="style.css">  
 <link rel="stylesheet" type="text/css" href="sweetalert.css">
+<link rel="icon" type="image/x-icon" href="../../img/favicon.ico" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="../js/carousel.js"></script>
+<script src="../../js/carousel.js"></script>
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="sweetalert.min.js"></script> 

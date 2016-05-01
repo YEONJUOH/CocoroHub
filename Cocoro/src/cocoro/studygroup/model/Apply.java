@@ -1,6 +1,8 @@
 package cocoro.studygroup.model;
 
-public class Apply {
+import java.io.Serializable;
+
+public class Apply implements Serializable{
 
 	private int apply_id;
 	private int s_id;

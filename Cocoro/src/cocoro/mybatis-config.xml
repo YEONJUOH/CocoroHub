@@ -21,7 +21,6 @@
 	<mappers>
 		<mapper resource="cocoro/xml/Users.xml"/>
 		<mapper resource="cocoro/xml/StudyGroup.xml"/>
-		
 	</mappers>
 	
 </configuration>

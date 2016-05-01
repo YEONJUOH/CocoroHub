@@ -1,3 +1,4 @@
+<%@page import="cocoro.user.model.Users"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
@@ -19,16 +20,23 @@
 
 	StudyCRUDService service = StudyCRUDService.getInstance();
 	StudyGroup studygroup = service.selectStudyService(s_id);
-	int re = service.updateHit(studygroup);
+	
+	int re = service.updateHitcount(studygroup);
 	if(re > 0)
 	{
 		hit = studygroup.getS_total_hit()+1;
 		studygroup.setS_total_hit(hit);
-		service.updateHit(studygroup);
+		service.updateHitcount(studygroup);
 	}
 	
 	request.setAttribute("studygroup", studygroup);
-
+	
+	
+	
+	
+ 	Users users = service.selectUsers(s_id, studygroup.getS_leader_id()); 
+ 	request.setAttribute("users", users); 
+	
 		/* 스터디 시간계산 */
        int s_t_start = 0;	
 	   int s_t_end = 0;
@@ -54,6 +62,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="icon" type="image/x-icon" href="../../img/favicon.ico" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="../js/carousel.js"></script>
 <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
@@ -243,8 +252,8 @@ span.tags
         <img align="left" class="fb-image-lg" src="http://tafebytes.com.au/wp-content/uploads/2012/11/study-group.jpg" alt="Profile image example"/>
         <img align="left" class="fb-image-profile thumbnail" src="http://1.soompi.io/wp-content/uploads/2015/02/IU.jpg" alt="Profile image example"/>
         <div class="fb-profile-text">
-            <h3>스터디 리더 : 아이유</h3>
-            <p>IUislove@gmail.com</p>
+            <h3>스터디 리더 : ${user.u_name}</h3>
+            <p>${user.u_email}</p>
         </div>
     </div>
 </div>
@@ -365,7 +374,7 @@ var mapTypeControl = new daum.maps.MapTypeControl();
 map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
 
     var infoDiv = document.getElementById('infoDiv');
-    infoDiv.innerHTML = message;
+   
 
 </script>
              	

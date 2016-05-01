@@ -13,6 +13,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import cocoro.mapper.StudyGroupMapper;
 import cocoro.studygroup.model.StudyGroup;
+import cocoro.user.model.Users;
 
 public class StudyGroupDao {
 	public static StudyGroupDao dao = new StudyGroupDao();
@@ -77,7 +78,7 @@ public class StudyGroupDao {
 		return sqlSession.getMapper(StudyGroupMapper.class).selectStudy(s_id);
 	}
 
-	public int updateHit(StudyGroup studygroup) {
+	/*public int updateHit(StudyGroup studygroup) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		int re = -1;
 		try 
@@ -97,7 +98,7 @@ public class StudyGroupDao {
 			sqlSession.close();
 		}
 		return re;
-	}
+	}*/
 
 	
 
@@ -123,5 +124,38 @@ public class StudyGroupDao {
 		}
 		return re;
 	}
+	public Users selectUser(HashMap<String, Integer> map) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		return sqlSession.getMapper(StudyGroupMapper.class).selectUser(map);
+	}
+	public int updateHitcount(StudyGroup studygroup) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = -1;
+		try 
+		{
+			re = sqlSession.getMapper(StudyGroupMapper.class).updateHitcount(studygroup);
+			if(re > 0)
+			{
+				sqlSession.commit();
+			}
+			else
+			{
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			sqlSession.close();
+		}
+		return re;
+	}
+	
+	
+	public Users selectUsers(HashMap<String, Integer> map) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		return sqlSession.getMapper(StudyGroupMapper.class).selectUsers(map);
+	}
+	
+
 }
 	
