@@ -10,13 +10,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../../css/CreateStudy/CreateStudyForm1.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="../js/carousel.js"></script>
-<style type="text/css">
-#comeon{margin-left:-53px;margin-top:7px;}
-#s_deposit_set{margin-left:-260px;}
-#won{margin-left:-280px;padding-top:7px;}
-</style>
 <script type="text/javascript">
 $(document).ready(function() 
 {
@@ -51,9 +47,24 @@ $(document).ready(function()
 <fieldset>
 
 <!-- 스터디 만들기  -->
-<legend>나만의 스터디 만들기</legend>
+<div class="panel-body panel-light">
+      <div></div>
+        <div class="row space-2 space-top-2">
+          <div class="col-sm-10 col-center text-center">
+            <h2 class="space-2" id="title">
+              스터디 만들기
+            </h2>
+              <p class="text-lead" id="subtitle">
+                Cocoro에 스터디를 만들고 온라인 스터디를 시작하세요.
+              </p>
+          </div>
+        </div>
+      <div></div>
+    </div>
 
 <!-- 스터디 명  -->
+<div class="panel-body panel-medium" id="container">
+<div class="contents" id="contents">	
 <div class="form-group">
   <label class="col-md-4 control-label" for="s_name">스터디 명</label>  
   <div class="col-md-5">
@@ -293,12 +304,11 @@ $(document).ready(function()
 	  <label class="input-inline col-md-5" id="won" for="s_deposit_set">원</label>  
   </div>
  </div>
- 
+
 <br><br>
 
 <!-- 히든인풋 -->
 <input type="hidden" name="u_id" value="<%=u_id%>">
-
 
 <!-- 계속 버튼  -->
 <div class="form-group">
@@ -306,6 +316,8 @@ $(document).ready(function()
   <div class="col-md-4">
     <input type="submit" id="s_next" name="s_next" class="btn btn-primary" value="계속">
   </div>
+</div>
+</div>
 </div>
 </fieldset>
 </form>

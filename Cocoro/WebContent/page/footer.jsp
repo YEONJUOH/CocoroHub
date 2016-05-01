@@ -18,37 +18,27 @@ height: 50px;
 <title>Insert title here</title>
 </head>
 <body>
-<div class="footer">
-	<!-- 
-		<div class="row">
-			<div class="col-md-3">
-				
+		<br>
+		<div class="footer">
+			<ul class="f-menu clfix">
+				<li><a href="http://www.dcenglish.co.kr/intro/intro01.asp">회사소개</a></li>
+				<li><a href="http://www.dcenglish.co.kr/customer/info.asp">정보</a></li>
+				<li><a href="http://www.dcenglish.co.kr/customer/privacy.asp">개인정보취급방침</a></li>
+				<li><a href="http://www.dcenglish.co.kr/mypage/article.asp">이용약관</a></li>
+			</ul>
+			<div class="address" style="font-size:11px; left:0px;">
+					 상호 : DC ENGLISH | 대표자 : 최진수 |
+					<a target="_blank" href="http://www.ftc.go.kr/info/bizinfo/communicationViewPopup.jsp?wrkr_no=3058610504">사업자등록번호 : 317-03-78988</a>
+					| 통신판매업 신고번호 : 제 2011-충북괴산-0054호
+					<br>
+					개인정보 담당자 : 김동현 | 주소 : 충북 괴산군 괴산읍 서부리 334-20 | TEL : 070-7868-6445 | 이메일: <a href="mailto:yell_wlstn@nate.com" title="Email Us">yell_wlstn@nate.com</a>
+					<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					Copyright 2016 by <strong>Cocoro</strong> Inc. All rights reserved.
 			</div>
-				<div class="col-md-3">
-				<p><B>Company</B></p>
-				<p>Press</p>
-				<p>Blog</p>
-				<p>Careers</p>
-			</div>
-			<div class="col-md-3">
-				<p><B>Ride</B></p>
-				<p>Drive</p>
-				<p>Cities</p>
-				<p>Help</p>
-				<p>Safety</p>
-				<p>Log in</p>
-			</div>
-				<div class="col-md-3">
-				<p><B>Ride</B></p>
-				<p>Drive</p>
-				<p>Cities</p>
-				<p>Help</p>
-				<p>Safety</p>
-				<p>Log in</p>
-			</div>
-		<div class="col-md-12">
-		 -->
-		<p class="text-center"> 2016 Cocoro, Inc.TermsPrivacy</p>
 		</div>
+	
 </body>
 </html>

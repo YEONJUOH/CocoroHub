@@ -8,10 +8,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <style type="text/css">
 .footer{
-margin-top: 100px;
-background-color: #FFEEFE;
+background-color: #666666;
 width: 100%;
 height: 50px;
+color: white;
+}
+#terms{
+padding-top:15px;
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
@@ -19,36 +22,36 @@ height: 50px;
 </head>
 <body>
 <div class="footer">
-	<!-- 
-		<div class="row">
-			<div class="col-md-3">
-				
-			</div>
-				<div class="col-md-3">
-				<p><B>Company</B></p>
-				<p>Press</p>
-				<p>Blog</p>
-				<p>Careers</p>
-			</div>
-			<div class="col-md-3">
-				<p><B>Ride</B></p>
-				<p>Drive</p>
-				<p>Cities</p>
-				<p>Help</p>
-				<p>Safety</p>
-				<p>Log in</p>
-			</div>
-				<div class="col-md-3">
-				<p><B>Ride</B></p>
-				<p>Drive</p>
-				<p>Cities</p>
-				<p>Help</p>
-				<p>Safety</p>
-				<p>Log in</p>
-			</div>
-		<div class="col-md-12">
-		 -->
-		<p class="text-center"> 2016 Cocoro, Inc.TermsPrivacy</p>
-		</div>
+   <!-- 
+      <div class="row">
+         <div class="col-md-3">
+            
+         </div>
+            <div class="col-md-3">
+            <p><B>Company</B></p>
+            <p>Press</p>
+            <p>Blog</p>
+            <p>Careers</p>
+         </div>
+         <div class="col-md-3">
+            <p><B>Ride</B></p>
+            <p>Drive</p>
+            <p>Cities</p>
+            <p>Help</p>
+            <p>Safety</p>
+            <p>Log in</p>
+         </div>
+            <div class="col-md-3">
+            <p><B>Ride</B></p>
+            <p>Drive</p>
+            <p>Cities</p>
+            <p>Help</p>
+            <p>Safety</p>
+            <p>Log in</p>
+         </div>
+      <div class="col-md-12">
+       -->
+      <p class="text-center" id="terms"> 2016 Cocoro, Inc.TermsPrivacy</p>
+      </div>
 </body>
 </html>

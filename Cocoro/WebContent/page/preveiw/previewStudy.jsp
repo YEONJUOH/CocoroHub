@@ -10,7 +10,7 @@
 <% 
 	
     request.setCharacterEncoding("utf-8");
-	String id = "1"; /* request.getParameter("s_id"); */
+	String id = request.getParameter("s_id");
 	int s_id = 0;
 	int hit = 0;
 	if(id != null)
@@ -438,6 +438,21 @@ map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
   							  </select>
   							  <button class="btn btn-success btn-block" id="rank_confirm"> 확인 </button>
   							  
+
+ 					   </div>
+  					</div>
+				</div>
+                    </c:if>  
+                 </c:if>  
+                
+                 <c:if test="${studygroup.s_kind_check =='F'}">
+                 	<c:if test="${studygroup.s_abil_check < 1}">
+                  		<button type="button" class="btn btn-success btn-block" onclick="fn_applyOk(0)"><span class="fa fa-plus-circle"></span> 가입신청 </button>
+					</c:if>
+                </c:if>
+                 <c:if test="${studygroup.s_kind_check =='T'}">
+                    <button class="btn btn-success btn-block" onclick="fn_enter()"><span class="fa fa-plus-circle"></span> 입장하기 </button>
+                 </c:if>
 <script type="text/javascript">
 $(document).ready(function() 
 		 {
@@ -448,30 +463,15 @@ $(document).ready(function()
 		$('#rank_confirm').click(function()
 		 	{
 				$('.rank_for_apply').hide();
+				
 				fn_applyOk(rank);
 		 	});
+		
 		 });
-		 
 function fn_applyOk(rank) {
-	location.href="applyOk.jsp?s_id=${studygroup.s_id}&rank_for_apply="+rank;
-}
-
+ 	location.href="applyOk.jsp?s_id=${studygroup.s_id}&rank_for_apply="+rank;
+ }	
 </script>
- 					   </div>
-  					</div>
-				</div>
-                    </c:if>  
-                 </c:if>  
-                
-                 <c:if test="${studygroup.s_kind_check =='F'}">
-                 	<c:if test="${studygroup.s_abil_check < 1}">
-                  		<button type="button" class="btn btn-success btn-block" onclick="fn_applyOk()"><span class="fa fa-plus-circle"></span> 가입신청 </button>
-					</c:if>
-                </c:if>
-                 <c:if test="${studygroup.s_kind_check =='T'}">
-                    <button class="btn btn-success btn-block" onclick="fn_enter()"><span class="fa fa-plus-circle"></span> 입장하기 </button>
-                 </c:if>
-                 
                 </div>
             </div>
         </div>                 
