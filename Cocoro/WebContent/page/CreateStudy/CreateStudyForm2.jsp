@@ -178,7 +178,6 @@ $(document).ready(function()
   </div>
   <button type="button" id="s_location" name="s_location"class="btn btn-primary" data-toggle="modal" data-target=".mapModal">위치검색</button>
 </div>
-
     <!-- 여기부터 모달 --> 
 	<div class="modal fade mapModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   		<div class="modal-dialog modal-lg">

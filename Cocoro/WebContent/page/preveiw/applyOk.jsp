@@ -21,7 +21,6 @@
 		rank_for_apply = Integer.parseInt(rank);
 	}
 
-	
 	StudyCRUDService service = StudyCRUDService.getInstance();
 	int re = service.applyService(u_id, s_id, rank_for_apply);
 	

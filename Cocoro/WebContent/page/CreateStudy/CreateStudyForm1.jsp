@@ -35,7 +35,6 @@ $(document).ready(function()
 		$('#s_t_start').removeAttr('disabled');
 		$('#s_t_end').removeAttr('disabled');
 	});
-	
 });	
 </script>
 

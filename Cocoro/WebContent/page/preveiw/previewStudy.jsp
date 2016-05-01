@@ -8,7 +8,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <% 
-	
     request.setCharacterEncoding("utf-8");
 	String id = request.getParameter("s_id");
 	int s_id = 0;
